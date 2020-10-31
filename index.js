@@ -8,12 +8,13 @@ const { Client, MessageEmbed } = require('discord.js');
 
 client.once('ready', () => {
     console.log('Bot je online!');
+    client.channels.get('772219639433396234').send('Bot je online!');
     client.user.setActivity("Adminy", { type: "LISTENING"})
     
 
 
 
-        console.log('Začátek obnovování Heroku Serveru');
+    client.channels.get('772219639433396234').send('Začátek obnovování Heroku Serveru');
        var interval = setInterval (function () {
    
            var today = new Date();
@@ -25,7 +26,7 @@ client.once('ready', () => {
    
    
 
-           console.log(obnoveno2+vysledek)
+           client.channels.get('772219639433396234').send(obnoveno2+vysledek)
        }, 360 * 1000); 
    
 
@@ -35,7 +36,7 @@ client.once('ready', () => {
 var warnStatus = '0';
 
 client.on("guildMemberAdd", (member) => {
-    const message = `Please welcome <@${member.id}> to the server! Please check out .toString()}`
+
 
     var t1 ='<@';
     var t2 = '>';
@@ -61,12 +62,14 @@ client.on("guildMemberAdd", (member) => {
     .setColor(11337728);
 
 
-    message.channel.send(message);
+
     message.channel.send(welocmeEmbed);
     message.channel.send(welocmeEmbed2);
 
 
-}
+})
+
+
 
 client.on('message', message => {
 
@@ -76,7 +79,7 @@ client.on('message', message => {
 
 
 
-else if(message.channel.id !== '364732638369415169'){
+if(message.channel.id !== '364732638369415169'){
     if(message.content.startsWith('=play' || '=queue' || '=skip' || '=purge')) {
         var autor = message.autor;
     var text = ',příkay k botům piš do roomky bot-commands';
