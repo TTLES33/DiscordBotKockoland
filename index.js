@@ -13,6 +13,22 @@ client.once('ready', () => {
 
 
 
+        console.log('Začátek obnovování Heroku Serveru');
+       var interval = setInterval (function () {
+   
+           var today = new Date();
+           var datum = today.getDate()+'.'+(today.getMonth()+1)+'.'+today.getFullYear();
+           var cas = today.getHours() + ":" + today.getMinutes();
+           var vysledek = cas+' '+datum;
+           var obnoveno1 = 'obnoveno:';
+           var obnoveno2 = 'Obnoveno Heroku - ';
+   
+   
+
+           console.log(obnoveno2+vysledek)
+       }, 360 * 1000); 
+   
+
 });
 
 
@@ -60,7 +76,7 @@ if(message.content === '/uvitacizprava'){
 
 
 else if(message.channel.id !== '364732638369415169'){
-    if(message.content.startsWith('=play')) {
+    if(message.content.startsWith('=play' || '=queue' || '=skip' || '=purge')) {
         var autor = message.autor;
     var text = ',příkay k botům piš do roomky bot-commands';
     var text2 = 'Příkay k botovi <@185476724627210241> piš do roomky <#364732638369415169>';
@@ -127,24 +143,7 @@ message.channel.send(warnStatus);
 
 
 
- if (message.content === "/nevergonnastopyouup") { 
-     message.channel.send('Začátek obnovování Heroku Serveru');
-     console.log('Začátek obnovování Heroku Serveru');
-    var interval = setInterval (function () {
-
-        var today = new Date();
-        var datum = today.getDate()+'.'+(today.getMonth()+1)+'.'+today.getFullYear();
-        var cas = today.getHours() + ":" + today.getMinutes();
-        var vysledek = cas+' '+datum;
-        var obnoveno1 = 'obnoveno:';
-        var obnoveno2 = 'Obnoveno Heroku na serveru TTLES|Software a Hardware ';
-
-
-        // use the message's channel (TextChannel) to send a new message
-        message.channel.send(obnoveno1+vysledek)
-        console.log(obnoveno2+vysledek)
-    }, 360 * 1000); 
-}
+ 
 
 
 
