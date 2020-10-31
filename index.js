@@ -24,7 +24,7 @@ client.on('message', message => {
 
   
 
-if(message.content === 'testtest'){
+if(message.content === '/uvitacizprava'){
     var t1 ='<@';
     var t2 = '>';
     var t3 = t1 + message.author + t2;
