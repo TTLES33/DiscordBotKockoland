@@ -34,13 +34,9 @@ client.once('ready', () => {
 
 var warnStatus = '0';
 
+client.on("guildMemberAdd", (member) => {
+    const message = `Please welcome <@${member.id}> to the server! Please check out .toString()}`
 
-
-client.on('message', message => {
-
-  
-
-if(message.content === '/uvitacizprava'){
     var t1 ='<@';
     var t2 = '>';
     var t3 = t1 + message.author + t2;
@@ -65,12 +61,17 @@ if(message.content === '/uvitacizprava'){
     .setColor(11337728);
 
 
-
+    message.channel.send(message);
     message.channel.send(welocmeEmbed);
     message.channel.send(welocmeEmbed2);
 
 
 }
+
+client.on('message', message => {
+
+  
+
 
 
 
