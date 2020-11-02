@@ -157,4 +157,4 @@ message.channel.send(warnStatus);
 })
 
 
-client.login('NzcxNjY0OTQ5NDQ5MDY0NDQ5.X5va_A.xuvVS5GAQNei_vTgVYp4YlP1HDM');
+client.login(process.env.DISCORD_TOKEN);
