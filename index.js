@@ -16,13 +16,13 @@ const { Client, MessageEmbed } = require('discord.js');
 
 client.once('ready', () => {
     console.log('Bot je online!');
-    client.channels.cache.get('772219639433396234').send('Bot je online!');
+    client.channels.cache.get('772909666601533450').send('Bot je online!');
     client.user.setActivity("Adminy", { type: "LISTENING"})
     
 
 
 
-    client.channels.cache.get('772219639433396234').send('Začátek obnovování Heroku Serveru');
+    client.channels.cache.get('772909666601533450').send('Začátek obnovování Heroku Serveru');
        var interval = setInterval (function () {
    
            var today = new Date();
@@ -34,7 +34,7 @@ client.once('ready', () => {
    
    
 
-           client.channels.cache.get('772219639433396234').send(obnoveno2+vysledek)
+           client.channels.cache.get('772909666601533450').send(obnoveno2+vysledek)
        }, 360 * 1000); 
    
 
