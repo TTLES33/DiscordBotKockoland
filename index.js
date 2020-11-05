@@ -41,7 +41,7 @@ client.once('ready', () => {
 });
 
 client.on('guildMemberAdd', member => {
-    member.guild.channels.get('762741377007222814').send("Welcome"); 
+    client.channels.cache.get('762741377007222814').send("Welcome"); 
 });
 var warnStatus = '0';
 
