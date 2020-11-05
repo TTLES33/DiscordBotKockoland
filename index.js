@@ -40,7 +40,7 @@ client.once('ready', () => {
 
 });
 
-client.on('guildMemberAdd', member => {
+ bot.on('guildMemberAdd', member => {
     client.channels.cache.get('762741377007222814').send("Welcome"); 
 });
 var warnStatus = '0';
