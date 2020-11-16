@@ -7,6 +7,7 @@
 
 
 const Discord = require('discord.js');
+var mysql = require('mysql');
 
 
 
