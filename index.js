@@ -22,27 +22,140 @@ client.once('ready', () => {
 
 
 
-    client.channels.cache.get('772909666601533450').send('Začátek obnovování Heroku Serveru');
-       var interval = setInterval (function () {
-   
-           var today = new Date();
-           var datum = today.getDate()+'.'+(today.getMonth()+1)+'.'+today.getFullYear();
-           var cas = today.getHours() + ":" + today.getMinutes();
-           var vysledek = cas+' '+datum;
-           var obnoveno1 = 'obnoveno:';
-           var obnoveno2 = 'Obnoveno Heroku - ';
-   
-   
 
-           client.channels.cache.get('772909666601533450').send(obnoveno2+vysledek)
-       }, 360 * 1000); 
+    var interval = setInterval (function () {
    
+        var con = mysql.createConnection({
+             host: "freedb.tech",
+             user: "freedbtech_TTLES",
+             password: "testpass",
+             database: "freedbtech_STATS"
+           });
+                
+           var hodnotaPokec;
+           var hodnotaBot;
+           var hodnotaChangelog;
+           var hodnotaMemez;
+           var hodnotaHelpdesk;
+           var hodnotaEvent;
+
+     
+               con.connect(function(err) {
+                 if (err)  client.channels.cache.get('772909666601533450').send(err);
+                 
+     
+     
+                 con.query("SELECT * FROM `KOCKOLAND_STATS` WHERE name='pokec'", function (err, result, fields) {
+                     if (err)  client.channels.cache.get('772909666601533450').send(err);
+     
+                   hodnotaPokecstring = JSON.stringify(result[0].hodnota);
+                   hodnotaPokec =  Number(hodnotaPokecstring);
+     
+     
+                 });
+     
+                 con.query("SELECT * FROM `KOCKOLAND_STATS` WHERE name='bot'", function (err, result, fields) {
+                     if (err)  client.channels.cache.get('772909666601533450').send(err);
+     
+                   hodnotaBotstring = JSON.stringify(result[0].hodnota);
+                   hodnotaBot = Number(hodnotaBotstring);
+      
+                   
+                 });
+     
+     
+                 con.query("SELECT * FROM `KOCKOLAND_STATS` WHERE name='changelog'", function (err, result, fields) {
+                     if (err)  client.channels.cache.get('772909666601533450').send(err);
+     
+                   hodnotaChangelogstring = JSON.stringify(result[0].hodnota);
+                   hodnotaChangelog =  Number(hodnotaChangelogstring);
+                   
+                 });
+     
+     
+                 con.query("SELECT * FROM `KOCKOLAND_STATS` WHERE name='memez'", function (err, result, fields) {
+                     if (err)  client.channels.cache.get('772909666601533450').send(err);
+     
+                   hodnotaMemezstring = JSON.stringify(result[0].hodnota);
+                   hodnotaMemez =  Number(hodnotaMemezstring);
+                   
+                 });
+     
+     
+                 con.query("SELECT * FROM `KOCKOLAND_STATS` WHERE name='helpdesk'", function (err, result, fields) {
+                     if (err)  client.channels.cache.get('772909666601533450').send(err);
+     
+                   hodnotaHelpdeskstring = JSON.stringify(result[0].hodnota);
+                   hodnotaHelpdesk =  Number(hodnotaHelpdeskstring);   
+                   
+                 });
+     
+     
+                 con.query("SELECT * FROM `KOCKOLAND_STATS` WHERE name='event'", function (err, result, fields) {
+                     if (err)  client.channels.cache.get('772909666601533450').send(err);
+     
+                   hodnotaEventstring = JSON.stringify(result[0].hodnota);
+                   hodnotaEvent =  Number(hodnotaEVentstring);
+                   
+                 });
+     
+     
+              
+               
+                 setTimeout(function () {
+                   var Pokec = '\n'+'**' + hodnotaPokec   + '**' +  ' - poslaných zpráv v roomce <#333659627352883201>'
+                   var Bot = '\n'+'**' + hodnotaBot   + '**' +  ' - poslaných zpráv v roomce <#364732638369415169>'
+                   var Changelog = '\n'+'**' + hodnotaChangelog   + '**' +  ' - poslaných zpráv v roomce <#544068287030362145>'
+                   var Memez = '\n'+'**' + hodnotaMemez   + '**' +  ' - poslaných zpráv v roomce <#615422457418874883>'
+                   var Helpdesk = '\n'+'**' + hodnotaHelpdesk   + '**' +  ' - poslaných zpráv v roomce <#770656028773056592>'
+                   var Event = '\n'+'**' + hodnotaEvent   + '**' +  '     - pravidel v <#776750895844163594>\n'
+      
+     
+                   var cissoucet = hodnotaPokec+hodnotaBot+hodnotaChangelog+hodnotaEvent+hodnotaHelpdesk+hodnotaMemez;
+     
+     
+                   var Soucet = '\n\n' +'**' + cissoucet +  '  zpráv celkově' + '**' ;
+                   var today = new Date();
+                   var datum = today.getDate()+'.'+(today.getMonth()+1)+'.'+today.getFullYear();
+                   var cas = today.getHours() + ":" + today.getMinutes();
+                   var vysledek = cas+' '+datum;
+                   var statsembed = new MessageEmbed()
+                   .setTitle('Statistiky:')
+                   .setColor(14483456)
+                   .setDescription(Pokec+Bot+Changelog+Memez+Helpdesk+Event)
+                   .setFooter('Obnoveno: '+vysledek+' (Obnovováno každých 10 minut)');
+                   
+                   client.channels.cache.get('772909666601533450').send(statsembed);
+                     
+     
+                 }, 5000);
+      
+                 con.end();
+     
+             })
+         
+     
+     
+     
+     
+     
+            }, 600 * 1000); 
 
 });
 
- bot.on('guildMemberAdd', member => {
-    client.channels.cache.get('762741377007222814').send("Welcome"); 
-});
+
+client.on ("guildMemberAdd", member => {
+
+
+    console.log('N2kdo se pripojil!!!');
+
+
+})
+
+
+
+
+
 var warnStatus = '0';
 
 client.on("guildMemberAdd", (member) => {
@@ -153,13 +266,352 @@ message.channel.send(warnStatus);
 
 
  }
+        
+           
+         
+         
+         
+         
+
+         
+         
+                //-----------------------------------------------------------------------------------------------
+                 //-------------------------------------- message Pokec-------------------------------------------
+                 //----------------------------------------------------------------------------------------------
+                 
+                 else if(message.channel.id === '333659627352883201'){
+         
+         
+            var con = mysql.createConnection({
+                 host: "freedb.tech",
+                 user: "freedbtech_TTLES",
+                 password: "testpass",
+                 database: "freedbtech_STATS"
+               });
+                       
+                       con.connect(function(err) {
+                         var hodnota;
+                         if (err)  client.channels.cache.get('772909666601533450').send(err);
+             
+             
+                         con.query("SELECT * FROM `KOCKOLAND_STATS` WHERE name='pokec'", function (err, result, fields) {
+                             if (err)  client.channels.cache.get('772909666601533450').send(err);
+             
+             
+                           hodnotaJSON = JSON.stringify(result[0].hodnota);
+                           hodnota = ++hodnotaJSON;
+                           console.log('UPDATE Statistiky=' + hodnota + ' - Pravidla');
+             
+             
+             
+             
+                         });
+                         setTimeout(function () {
+                             console.log(hodnota);
+                             var sql = "UPDATE `KOCKOLAND_STATS` SET hodnota="+hodnota+" WHERE name='pokec'";
+                             con.query(sql, function (err, result) {
+                                 if (err)  client.channels.cache.get('772909666601533450').send(err);
+                                 console.log(result.affectedRows + " record(s) updated");
+                                 con.end();
+                             });
+             
+                         }, 2000);
+                  
+                       });
+         
+                 }
+         
+         
+         
+                 
+                //-----------------------------------------------------------------------------------------------
+                 //-------------------------------------- message bot-------------------------------------------
+                 //----------------------------------------------------------------------------------------------
+                 
+                 else if(message.channel.id === '364732638369415169'){
+         
+         
+            var con = mysql.createConnection({
+                 host: "freedb.tech",
+                 user: "freedbtech_TTLES",
+                 password: "testpass",
+                 database: "freedbtech_STATS"
+               });
+                       
+                       con.connect(function(err) {
+                         var hodnota;
+                         if (err)  client.channels.cache.get('772909666601533450').send(err);
+             
+             
+                         con.query("SELECT * FROM `KOCKOLAND_STATS` WHERE name='bot'", function (err, result, fields) {
+                             if (err)  client.channels.cache.get('772909666601533450').send(err);
+             
+             
+                           hodnotaJSON = JSON.stringify(result[0].hodnota);
+                           hodnota = ++hodnotaJSON;
+                           
+                           client.channels.cache.get('772909666601533450').send('UPDATE Statistiky=' + hodnota + ' - Bot');
+             
+             
+             
+             
+                         });
+                         setTimeout(function () {
+                             console.log(hodnota);
+                             var sql = "UPDATE `KOCKOLAND_STATS` SET hodnota="+hodnota+" WHERE name='bot'";
+                             con.query(sql, function (err, result) {
+                                 if (err)  client.channels.cache.get('772909666601533450').send(err);
+                                 console.log(result.affectedRows + " record(s) updated");
+                                 con.end();
+                             });
+             
+                         }, 2000);
+                  
+                       });
+         
+                 }
+         
+         
+         
+                 
+                //-----------------------------------------------------------------------------------------------
+                 //-------------------------------------- message changelog-------------------------------------------
+                 //----------------------------------------------------------------------------------------------
+                 
+                 else if(message.channel.id === '544068287030362145'){
+         
+         
+         
+            var con = mysql.createConnection({
+                 host: "freedb.tech",
+                 user: "freedbtech_TTLES",
+                 password: "testpass",
+                 database: "freedbtech_STATS"
+               });
+                       con.connect(function(err) {
+                         var hodnota;
+                         if (err)  client.channels.cache.get('772909666601533450').send(err);
+             
+             
+                         con.query("SELECT * FROM `KOCKOLAND_STATS` WHERE name='changelog'", function (err, result, fields) {
+                             if (err)  client.channels.cache.get('772909666601533450').send(err);
+             
+             
+                           hodnotaJSON = JSON.stringify(result[0].hodnota);
+                           hodnota = ++hodnotaJSON;
+                           client.channels.cache.get('772909666601533450').send('UPDATE Statistiky=' + hodnota + ' - Changelog');
+             
+             
+             
+             
+                         });
+                         setTimeout(function () {
+                             console.log(hodnota);
+                             var sql = "UPDATE `KOCKOLAND_STATS` SET hodnota="+hodnota+" WHERE name='changelog'";
+                             con.query(sql, function (err, result) {
+                                 if (err)  client.channels.cache.get('772909666601533450').send(err);
+                                 console.log(result.affectedRows + " record(s) updated");
+                                 con.end();
+                             });
+             
+                         }, 2000);
+                  
+                       });
+         
+                 }
+                                  
+                //-----------------------------------------------------------------------------------------------
+                 //-------------------------------------- message memez-------------------------------------------
+                 //----------------------------------------------------------------------------------------------
+                 
+                 else if(message.channel.id === '615422457418874883'){
+         
+         
+         
+                    var con = mysql.createConnection({
+                         host: "freedb.tech",
+                         user: "freedbtech_TTLES",
+                         password: "testpass",
+                         database: "freedbtech_STATS"
+                       });
+                               con.connect(function(err) {
+                                 var hodnota;
+                                 if (err)  client.channels.cache.get('772909666601533450').send(err);
+                     
+                     
+                                 con.query("SELECT * FROM `KOCKOLAND_STATS` WHERE name='memez'", function (err, result, fields) {
+                                     if (err)  client.channels.cache.get('772909666601533450').send(err);
+                     
+                     
+                                   hodnotaJSON = JSON.stringify(result[0].hodnota);
+                                   hodnota = ++hodnotaJSON;
+                                   client.channels.cache.get('772909666601533450').send('UPDATE Statistiky=' + hodnota + ' - Memez');
+                     
+                     
+                     
+                     
+                                 });
+                                 setTimeout(function () {
+                                     console.log(hodnota);
+                                     var sql = "UPDATE `KOCKOLAND_STATS` SET hodnota="+hodnota+" WHERE name='memez'";
+                                     con.query(sql, function (err, result) {
+                                         if (err)  client.channels.cache.get('772909666601533450').send(err);
+                                         console.log(result.affectedRows + " record(s) updated");
+                                         con.end();
+                                     });
+                     
+                                 }, 2000);
+                          
+                               });
+                 
+                         }
+                                          
+                //-----------------------------------------------------------------------------------------------
+                 //-------------------------------------- message helpdesk-------------------------------------------
+                 //----------------------------------------------------------------------------------------------
+                 
+                 else if(message.channel.id === '615422558648401953'){
+         
+         
+         
+                    var con = mysql.createConnection({
+                         host: "freedb.tech",
+                         user: "freedbtech_TTLES",
+                         password: "testpass",
+                         database: "freedbtech_STATS"
+                       });
+                               con.connect(function(err) {
+                                 var hodnota;
+                                 if (err)  client.channels.cache.get('772909666601533450').send(err);
+                     
+                     
+                                 con.query("SELECT * FROM `KOCKOLAND_STATS` WHERE name='helpdesk'", function (err, result, fields) {
+                                     if (err)  client.channels.cache.get('772909666601533450').send(err);
+                     
+                     
+                                   hodnotaJSON = JSON.stringify(result[0].hodnota);
+                                   hodnota = ++hodnotaJSON;
+                                   client.channels.cache.get('772909666601533450').send('UPDATE Statistiky=' + hodnota + ' - Helpdesk');
+                     
+                     
+                     
+                     
+                                 });
+                                 setTimeout(function () {
+                                     console.log(hodnota);
+                                     var sql = "UPDATE `KOCKOLAND_STATS` SET hodnota="+hodnota+" WHERE name='helpdesk'";
+                                     con.query(sql, function (err, result) {
+                                         if (err)  client.channels.cache.get('772909666601533450').send(err);
+                                         console.log(result.affectedRows + " record(s) updated");
+                                         con.end();
+                                     });
+                     
+                                 }, 2000);
+                          
+                               });
+                 
+                         }
+                                          
+                //-----------------------------------------------------------------------------------------------
+                 //-------------------------------------- message changelog-------------------------------------------
+                 //----------------------------------------------------------------------------------------------
+                 
+                 else if(message.channel.id === '544068287030362145'){
+         
+         
+         
+                    var con = mysql.createConnection({
+                         host: "freedb.tech",
+                         user: "freedbtech_TTLES",
+                         password: "testpass",
+                         database: "freedbtech_STATS"
+                       });
+                               con.connect(function(err) {
+                                 var hodnota;
+                                 if (err)  client.channels.cache.get('772909666601533450').send(err);
+                     
+                     
+                                 con.query("SELECT * FROM `KOCKOLAND_STATS` WHERE name='changelog'", function (err, result, fields) {
+                                     if (err)  client.channels.cache.get('772909666601533450').send(err);
+                     
+                     
+                                   hodnotaJSON = JSON.stringify(result[0].hodnota);
+                                   hodnota = ++hodnotaJSON;
+                                   client.channels.cache.get('772909666601533450').send('UPDATE Statistiky=' + hodnota + ' - Changelog');
+                     
+                     
+                     
+                     
+                                 });
+                                 setTimeout(function () {
+                                     console.log(hodnota);
+                                     var sql = "UPDATE `KOCKOLAND_STATS` SET hodnota="+hodnota+" WHERE name='changelog'";
+                                     con.query(sql, function (err, result) {
+                                         if (err)  client.channels.cache.get('772909666601533450').send(err);
+                                         console.log(result.affectedRows + " record(s) updated");
+                                         con.end();
+                                     });
+                     
+                                 }, 2000);
+                          
+                               });
+                 
+                         }
+
+
+                  //-----------------------------------------------------------------------------------------------
+                 //-------------------------------------- message event-------------------------------------------
+                 //----------------------------------------------------------------------------------------------
+                 
+                 else if(message.channel.id === '770656028773056592'){
+         
+         
+         
+                    var con = mysql.createConnection({
+                         host: "freedb.tech",
+                         user: "freedbtech_TTLES",
+                         password: "testpass",
+                         database: "freedbtech_STATS"
+                       });
+                               con.connect(function(err) {
+                                 var hodnota;
+                                 if (err)  client.channels.cache.get('772909666601533450').send(err);
+                     
+                     
+                                 con.query("SELECT * FROM `KOCKOLAND_STATS` WHERE name='event'", function (err, result, fields) {
+                                     if (err)  client.channels.cache.get('772909666601533450').send(err);
+                     
+                     
+                                   hodnotaJSON = JSON.stringify(result[0].hodnota);
+                                   hodnota = ++hodnotaJSON;
+                                   client.channels.cache.get('772909666601533450').send('UPDATE Statistiky=' + hodnota + ' - Event');
+                     
+                     
+                     
+                     
+                                 });
+                                 setTimeout(function () {
+                                     console.log(hodnota);
+                                     var sql = "UPDATE `KOCKOLAND_STATS` SET hodnota="+hodnota+" WHERE name='event'";
+                                     con.query(sql, function (err, result) {
+                                         if (err)  client.channels.cache.get('772909666601533450').send(err);
+                                         console.log(result.affectedRows + " record(s) updated");
+                                         con.end();
+                                     });
+                     
+                                 }, 2000);
+                          
+                               });
+                 
+                         }
+         
 
 
 
 
  
 
-
+        
 
 
 
