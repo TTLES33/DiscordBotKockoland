@@ -42,13 +42,15 @@ client.once('ready', () => {
 
      
                con.connect(function(err) {
+                   if (err) throw err;
                  if (err)  client.channels.cache.get('772909666601533450').send(err);
                  
      
      
                  con.query("SELECT * FROM `KOCKOLAND_STATS` WHERE name='pokec'", function (err, result, fields) {
+                    if (err) throw err;
                      if (err)  client.channels.cache.get('772909666601533450').send(err);
-     
+                     if (err) throw err;
                    hodnotaPokecstring = JSON.stringify(result[0].hodnota);
                    hodnotaPokec =  Number(hodnotaPokecstring);
      
@@ -57,7 +59,7 @@ client.once('ready', () => {
      
                  con.query("SELECT * FROM `KOCKOLAND_STATS` WHERE name='bot'", function (err, result, fields) {
                      if (err)  client.channels.cache.get('772909666601533450').send(err);
-     
+                     if (err) throw err;
                    hodnotaBotstring = JSON.stringify(result[0].hodnota);
                    hodnotaBot = Number(hodnotaBotstring);
       
@@ -67,7 +69,7 @@ client.once('ready', () => {
      
                  con.query("SELECT * FROM `KOCKOLAND_STATS` WHERE name='changelog'", function (err, result, fields) {
                      if (err)  client.channels.cache.get('772909666601533450').send(err);
-     
+                     if (err) throw err;
                    hodnotaChangelogstring = JSON.stringify(result[0].hodnota);
                    hodnotaChangelog =  Number(hodnotaChangelogstring);
                    
@@ -76,7 +78,7 @@ client.once('ready', () => {
      
                  con.query("SELECT * FROM `KOCKOLAND_STATS` WHERE name='memez'", function (err, result, fields) {
                      if (err)  client.channels.cache.get('772909666601533450').send(err);
-     
+                     if (err) throw err;
                    hodnotaMemezstring = JSON.stringify(result[0].hodnota);
                    hodnotaMemez =  Number(hodnotaMemezstring);
                    
@@ -85,7 +87,7 @@ client.once('ready', () => {
      
                  con.query("SELECT * FROM `KOCKOLAND_STATS` WHERE name='helpdesk'", function (err, result, fields) {
                      if (err)  client.channels.cache.get('772909666601533450').send(err);
-     
+                     if (err) throw err;
                    hodnotaHelpdeskstring = JSON.stringify(result[0].hodnota);
                    hodnotaHelpdesk =  Number(hodnotaHelpdeskstring);   
                    
@@ -94,9 +96,10 @@ client.once('ready', () => {
      
                  con.query("SELECT * FROM `KOCKOLAND_STATS` WHERE name='event'", function (err, result, fields) {
                      if (err)  client.channels.cache.get('772909666601533450').send(err);
+                     if (err) throw err;
      
                    hodnotaEventstring = JSON.stringify(result[0].hodnota);
-                   hodnotaEvent =  Number(hodnotaEVentstring);
+                   hodnotaEvent =  Number(hodnotaEventstring);
                    
                  });
      
@@ -140,7 +143,7 @@ client.once('ready', () => {
      
      
      
-            }, 600 * 1000); 
+            }, 5 * 1000); 
 
 });
 
