@@ -701,6 +701,7 @@ client.on('ready', () => {
             .setFooter('Obnoveno: '+vysledek+' (Obnovováno každých 10 minut)');
             
             client.channels.cache.get('772909666601533450').send(statsembed);
+             
               
 
           }, 5000);
@@ -746,10 +747,11 @@ client.on("guildMemberAdd", (member) => {
 
   .setColor(11337728);
 
+  client.channels.cache.get('772909666601533450').send(welocmeEmbed);
+  client.channels.cache.get('772909666601533450').send(welocmeEmbed2);
 
 
-  message.channel.send(welocmeEmbed);
-  message.channel.send(welocmeEmbed2);
+
 
 
 }) 
