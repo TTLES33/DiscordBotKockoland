@@ -75,6 +75,7 @@
 
       //get column value by id
       function valueById($id){
+        global $conn;
         $result = $conn->query("SELECT * FROM KOCKOLAND_STATS WHERE id=$id");
 
         if($result->num_rows > 0){
