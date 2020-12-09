@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
   <head>
-    <title>Discord Widget Embed</title>
+    <title>Discord Widget</title>
     <style>
       body{
         background: #e3e3e3;
@@ -73,69 +73,56 @@
         die("Connection failed: " . $conn->connect_error);
       }
 
-      $result = $conn->query("SELECT * FROM KOCKOLAND_STATS WHERE id=6");
+      //get column value by id
+      function valueById($id){
+        $result = $conn->query("SELECT * FROM KOCKOLAND_STATS WHERE id=$id");
 
-      if($result->num_rows > 0){
-        while($row = $result->fetch_assoc()){
-          $online = $row["hodnota"];
+        if($result->num_rows > 0){
+          $row = $result->fetch_assoc();
+          return $row["hodnota"];
+        }else{
+          //returns -1 on error
+          return -1;
         }
-      }else{
-        echo "0 results";
       }
 
-      $result = $conn->query("SELECT * FROM KOCKOLAND_STATS WHERE id=7");
+      //online users query
+      $online = valueById(6);
 
-      if($result->num_rows > 0){
-        while($row = $result->fetch_assoc()){
-          $celkem = $row["hodnota"];
-        }
-      }else{
-        echo "0 results";
-      }
+      //total users query
+      $celkem = valueById(7);
 
-      $result = $conn->query("SELECT * FROM KOCKOLAND_STATS WHERE id=8");
+      //staff online query
+      $staff_online = valueById(8);
 
-      if($result->num_rows > 0){
-        while($row = $result->fetch_assoc()){
-          $staff_online = $row["hodnota"];
-        }
-      }else{
-        echo "0 results";
-      }
-
-      $result = $conn->query("SELECT * FROM KOCKOLAND_STATS WHERE id=9");
-      if($result->num_rows > 0){
-        while($row = $result->fetch_assoc()){
-          $staff_celkem = $row["hodnota"];
-        }
-      }else{
-        echo "0 results";
-      }
+      //staff total query
+      $staff_celkem = valueById(9);
 
       $conn->close();
     ?>
+    <!-- TEST -->
     <table>
       <tr>
-        <td><?php  echo $staff_online; ?></td>
-        <td><?php  echo $celkem; ?></td>
+        <td><?php echo $staff_online; ?></td>
+        <td><?php echo $celkem; ?></td>
       </tr>
     </table>
-
+    <!-- Widget data -->
     <div class="container">
-      <div class="first" style=" padding-top: 20px;">
-        <div class="left" >Název: </div>  <div class="right">  SkyBlock | Kockoland </div>
+      <div class="first" style="padding-top: 20px;">
+        <div class="left">Název: </div>  <div class="right">  SkyBlock | Kockoland </div>
       </div>
       <div class="first">
         <div class="left">Uživatelů: </div>  <div class="right">  <?php echo $online; echo " / "; echo $celkem;?></div>
       </div>
-      <div class="first" >
-        <div class="left" >Kód Pro Připojení: </div>  <div class="right">  <a href="https://discord.com/invite/BSB8zJqX?utm_source=Discord%20Widget&utm_medium=Connect" class="invite">BSB8zJqX</a></div>
+      <div class="first">
+        <div class="left">Kód Pro Připojení: </div>  <div class="right">  <a href="https://discord.com/invite/BSB8zJqX?utm_source=Discord%20Widget&utm_medium=Connect" class="invite">BSB8zJqX</a></div>
       </div>
       <div class="first">
-        <div class="<?php if($staff_online > '0'){echo 'stav_online">Management je Online ('.$staff_online. ')';}else{echo 'stav_offline"> × Management není Online × ';} ?></div>
+        <div class="<?php echo ($staff_online > 0)?'stav_online">Management je Online ('.$staff_online. ')':'stav_offline"> × Management není Online × '; ?></div>
       </div>
       <div class="first">
-        <a href="https://discord.com/invite/BSB8zJqX?utm_source=Discord%20Widget&utm_medium=Connect"> <img  src="discord.png" style=" width: 80%; padding: 10%; padding-bottom: 5px; padding-top: 5px;"></a>
+        <a href="https://discord.com/invite/BSB8zJqX?utm_source=Discord%20Widget&utm_medium=Connect"> <img src="discord.png" style=" width: 80%; padding: 10%; padding-bottom: 5px; padding-top: 5px;"></a>
       </div>
     </div>
   </body>
