@@ -695,7 +695,7 @@ client.on('ready', () => {
             var cas = today.getHours() + ":" + today.getMinutes();
             var vysledek = cas+' '+datum;
             var statsembed = new MessageEmbed()
-            .setTitle('Statistikyyy:')
+            .setTitle('Statistiky:')
             .setColor(14483456)
             .setDescription(Pokec+Bot+Changelog+Memez+Helpdesk+Event+OnlineEmbed)
             .setFooter('Obnoveno: '+vysledek+' (Obnovováno každých 10 minut)');
