@@ -2,13 +2,6 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 const { Client, MessageEmbed } = require('discord.js');
 
-const http = require('http');
-const fs = require('fs');
-const path = require('path');
-
-const hostname = 'localhost';
-const port = 3000;
-
 
 
 //Scripts
@@ -19,6 +12,7 @@ script_catch = require("./script_catch");
 script_get_members = require("./script_get_members");
 script_embed = require("./script_embed");
 scritp_help = require("./script_help");
+script_os = require("./script_os");
 
 
 
