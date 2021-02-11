@@ -23,16 +23,13 @@ Pokud odeslaná zpráva obsahuje ``` =play``` ```=queue``` ```=skip``` ```=purge
 Maže zprávy obsahující slovo z databáze.
 
 * `--av` Zobrazí tuto nápovědu
-
 * `--av list` List blokovaných slov a vyjímek
-
 * `--av add` Přidá slovo do blacklistu
-
 * `--av delete` Odebere slovo z blacklistu
-
 * `--av exc add` Přidá slovo do vyjímek
-
 * `--av exc delete` Odebere slovo z vyjímek
+
+[Více zde](https://github.com/TTLES33/DiscordBotKockoland/wiki/Anti-Vulgarita)
 
 
 
