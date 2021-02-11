@@ -22,7 +22,7 @@ Pokud odeslaná zpráva obsahuje ``` =play``` ```=queue``` ```=skip``` ```=purge
 
 Maže zprávy obsahující slovo z databáze.
 
-* `--av <slovo>` Zobrazí tuto nápovědu
+* `--av` Zobrazí tuto nápovědu
 * `--av list <slovo>` List blokovaných slov a vyjímek
 * `--av add <slovo>` Přidá slovo do blacklistu
 * `--av delete <slovo>` Odebere slovo z blacklistu
