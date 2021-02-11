@@ -4,9 +4,11 @@ const { Client, MessageEmbed } = require('discord.js');
 var mysql = require('mysql');
 
 
+var today = new Date();
+var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
 client.on('ready', () => {
 
-    console.log("[File Manager] LOADED FILE - script_catch.js ");
+    console.log("[" + time +"] [FM] LOADED FILE - script_catch.js ");
   
   
   })    
@@ -44,18 +46,18 @@ var con = mysql.createConnection({
  
                hodnotaJSON = JSON.stringify(result[0].hodnota);
                hodnota = ++hodnotaJSON;
-               console.log('UPDATE Statistiky=' + hodnota + ' - Pokec');
+               console.log('[" + time +"] [Stats] UPDATE Statistiky=' + hodnota + ' - Pokec');
  
  
  
  
              });
              setTimeout(function () {
-                 console.log(hodnota);
+            
                  var sql = "UPDATE `KOCKOLAND_STATS` SET hodnota="+hodnota+" WHERE name='pokec'";
                  con.query(sql, function (err, result) {
                      if (err)  client.channels.cache.get('772909666601533450').send(err);
-                     console.log(result.affectedRows + " record(s) updated");
+                     
                      con.end();
                  });
  
@@ -100,11 +102,11 @@ var con = mysql.createConnection({
  
              });
              setTimeout(function () {
-                 console.log(hodnota);
+              
                  var sql = "UPDATE `KOCKOLAND_STATS` SET hodnota="+hodnota+" WHERE name='bot'";
                  con.query(sql, function (err, result) {
                      if (err)  client.channels.cache.get('772909666601533450').send(err);
-                     console.log(result.affectedRows + " record(s) updated");
+                    
                      con.end();
                  });
  
@@ -149,11 +151,11 @@ var con = mysql.createConnection({
  
              });
              setTimeout(function () {
-                 console.log(hodnota);
+                
                  var sql = "UPDATE `KOCKOLAND_STATS` SET hodnota="+hodnota+" WHERE name='changelog'";
                  con.query(sql, function (err, result) {
                      if (err)  client.channels.cache.get('772909666601533450').send(err);
-                     console.log(result.affectedRows + " record(s) updated");
+               
                      con.end();
                  });
  
@@ -195,11 +197,11 @@ var con = mysql.createConnection({
          
                      });
                      setTimeout(function () {
-                         console.log(hodnota);
+                        
                          var sql = "UPDATE `KOCKOLAND_STATS` SET hodnota="+hodnota+" WHERE name='memez'";
                          con.query(sql, function (err, result) {
                              if (err)  client.channels.cache.get('772909666601533450').send(err);
-                             console.log(result.affectedRows + " record(s) updated");
+                    
                              con.end();
                          });
          
@@ -241,11 +243,11 @@ var con = mysql.createConnection({
          
                      });
                      setTimeout(function () {
-                         console.log(hodnota);
+           
                          var sql = "UPDATE `KOCKOLAND_STATS` SET hodnota="+hodnota+" WHERE name='helpdesk'";
                          con.query(sql, function (err, result) {
                              if (err)  client.channels.cache.get('772909666601533450').send(err);
-                             console.log(result.affectedRows + " record(s) updated");
+                             
                              con.end();
                          });
          
@@ -287,11 +289,11 @@ var con = mysql.createConnection({
          
                      });
                      setTimeout(function () {
-                         console.log(hodnota);
+                      
                          var sql = "UPDATE `KOCKOLAND_STATS` SET hodnota="+hodnota+" WHERE name='changelog'";
                          con.query(sql, function (err, result) {
                              if (err)  client.channels.cache.get('772909666601533450').send(err);
-                             console.log(result.affectedRows + " record(s) updated");
+                            
                              con.end();
                          });
          
@@ -334,11 +336,11 @@ var con = mysql.createConnection({
          
                      });
                      setTimeout(function () {
-                         console.log(hodnota);
+                    
                          var sql = "UPDATE `KOCKOLAND_STATS` SET hodnota="+hodnota+" WHERE name='event'";
                          con.query(sql, function (err, result) {
                              if (err)  client.channels.cache.get('772909666601533450').send(err);
-                             console.log(result.affectedRows + " record(s) updated");
+                            
                              con.end();
                          });
          

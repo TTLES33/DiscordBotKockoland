@@ -2,6 +2,8 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 const { Client, MessageEmbed } = require('discord.js');
 
+var today = new Date();
+var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
 client.on('ready', () => {
 
     console.log("[File Manager] LOADED FILE - script_join.js ");

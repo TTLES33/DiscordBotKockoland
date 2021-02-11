@@ -4,9 +4,13 @@ const client = new Discord.Client();
 const { Client, MessageEmbed } = require('discord.js');
 
 
+var today = new Date();
+var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+
+
 client.on('ready', () => {
 
-    console.log("[File Manager] LOADED FILE - script_embed.js ");
+    console.log("[" + time +"] [FM] LOADED FILE - script_embed.js ");
   
   
   })    
@@ -20,7 +24,15 @@ var autor_console = "";
 
 
 
+
+
+
 client.on('message', message => {
+
+
+
+
+
 
 
     if(message.channel.id === "772909666601533450"){
@@ -49,8 +61,8 @@ client.on('message', message => {
        .setColor(14596352);
        message.channel.send(embed);
          status = "1";
-         console.log("[embed] Uživatal " + author_console + "začal vytvářek embed zprávu");
-        console.log("[embed] Status = " + status);
+         console.log("[" + time +"] [" + time +"] [Embed]  Uživatal " + author_console + "začal vytvářek embed zprávu");
+        console.log("[" + time +"] [" + time +"] [Embed]   Status = " + status);
     
     
     
@@ -79,8 +91,8 @@ client.on('message', message => {
           message.channel.send(vysledek);
           status = "2"
 
-          console.log("[embed] Zadávání obsahu");
-          console.log("[embed] Status = " + status);
+          console.log("[" + time +"] [" + time +"] [Embed]   Zadávání obsahu");
+          console.log("[" + time +"] [" + time +"] [Embed]   Status = " + status);
     
     }
     
@@ -103,8 +115,8 @@ client.on('message', message => {
         message.channel.send(vysledek);
         status = "3"
 
-        console.log("[embed] Zadávání zápatí");
-        console.log("[embed] Status = " + status);
+        console.log("[" + time +"] [" + time +"] [Embed]   Zadávání zápatí");
+        console.log("[" + time +"] [" + time +"] [Embed]   Status = " + status);
     
     
     
@@ -131,8 +143,8 @@ client.on('message', message => {
         message.channel.send(vysledek);
         status = "4"
 
-        console.log("[embed] Zadávání barvy");
-        console.log("[embed] Status = " + status);
+        console.log("[" + time +"] [" + time +"] [Embed]   Zadávání barvy");
+        console.log("[" + time +"] [" + time +"] [Embed]   Status = " + status);
     
     
     
@@ -173,8 +185,8 @@ client.on('message', message => {
 
           status = "5"
     
-        console.log("[embed] Zadávání barvy hex #");
-        console.log("[embed] Status = " + status);
+        console.log("[" + time +"] [" + time +"] [Embed]   Zadávání barvy hex #");
+        console.log("[" + time +"] [" + time +"] [Embed]   Status = " + status);
     
     
     
@@ -194,8 +206,8 @@ client.on('message', message => {
   
     status = "5"
 
-    console.log("[embed] Zadávání barvy hex");
-    console.log("[embed] Status = " + status);
+    console.log("[" + time +"] [" + time +"] [Embed]   Zadávání barvy hex");
+    console.log("[" + time +"] [" + time +"] [Embed]   Status = " + status);
     
     
     
@@ -216,8 +228,8 @@ client.on('message', message => {
        
           status = "5"
 
-          console.log("[embed] Zadávání barvy dec");
-          console.log("[embed] Status = " + status);
+          console.log("[" + time +"] [" + time +"] [Embed]   Zadávání barvy dec");
+          console.log("[" + time +"] [" + time +"] [Embed]   Status = " + status);
     
     
       }
@@ -229,8 +241,8 @@ client.on('message', message => {
           message.channel.send(vysledek);
           status = "4";
 
-          console.log("[embed] Zadávání barvy - špatný typ");
-          console.log("[embed] Status = " + status);
+          console.log("[" + time +"] [Embed]  Zadávání barvy - špatný typ");
+          console.log("[" + time +"] [Embed]  Status = " + status);
       }
     
      }
@@ -250,8 +262,8 @@ client.on('message', message => {
         status = "6";
       
       
-        console.log("[embed] Zadávání channelu");
-        console.log("[embed] Status = " + status);
+        console.log("[" + time +"] [Embed]  Zadávání channelu");
+        console.log("[" + time +"] [Embed]  Status = " + status);
       
       
       }
@@ -263,11 +275,11 @@ client.on('message', message => {
      
     else if(status === "6"){
       if(message.author.bot) return;
-      console.log("[embed] Status = " + status);
+      console.log("[" + time +"] [Embed]  Status = " + status);
     
     
         room = message.content;
-        console.log("[embed] room:" + room);
+        console.log("[" + time +"] [Embed]  room:" + room);
         if(room === "1"){
           channel = "342701840686907413";
           ping_channel = '<#' + channel + '>';
