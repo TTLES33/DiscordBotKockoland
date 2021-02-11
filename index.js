@@ -21,7 +21,7 @@ script_get_members = require("./script_get_members");
 script_embed = require("./script_embed");
 scritp_help = require("./script_help");
 script_os = require("./script_os");
-//script_anti_vulgarita = require("./script_anti_vulgarita");
+script_anti_vulgarita = require("./script_anti_vulgarita");
 
 
 

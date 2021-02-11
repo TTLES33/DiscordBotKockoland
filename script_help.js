@@ -17,9 +17,11 @@ client.on('ready', () => {
 
     if(message.content === "--help"){
 
-
+      var embed1 = new MessageEmbed()
+      .setDescription("[WebAdmin](http://ttles.space/kockoland/)")
+      message.channel.send(embed1);
         var embed = new MessageEmbed()
-        .setDescription("**--embed** - Odesílání embed zprávy (upozornění)\n**--stats** - statistiky");
+        .setDescription("**--embed** - Odesílání embed zprávy (upozornění)\n**--stats** - statistiky\n**--av** - Anti Vulgarita");
 
         message.channel.send(embed);
 

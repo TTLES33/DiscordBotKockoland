@@ -134,7 +134,7 @@ var con = mysql.createConnection({
 
 client.on('message', message => {
 
-  if(message.member.roles.cache.has('806584070082396181') === false){
+  if(message.member.roles.cache.get("333666817346371586") === false){
 
 
   var zprava = message.content;
@@ -246,7 +246,8 @@ con.connect(function(err) {
     console.log("[" + time +"] [AV] Added " + blacklist_insert + " into " + database);
     
     var embed = new MessageEmbed()
-            .setTitle("Přidávo " + blacklist_insert + " do zakázaných slov");
+            .setTitle("Přidáno " + blacklist_insert + " do zakázaných slov")
+            .setDescription("Změna se může projevit až za 1 min.");
     message.channel.send(embed);
   });
 
@@ -281,7 +282,8 @@ else if(message.content.startsWith("--av exc add")){
       console.log("[" + time +"] [AV] Added " + blacklist_insert + " into " + database);
       
       var embed = new MessageEmbed()
-              .setTitle("Přidávo " + blacklist_insert + " do vyjímek");
+              .setTitle("Přidáno " + blacklist_insert + " do vyjímek")
+              .setDescription("Změna se může projevit až za 1 min.");
       message.channel.send(embed);
     });
   
@@ -314,7 +316,8 @@ else if(message.content.startsWith("--av exc add")){
         console.log("[" + time +"] [AV] Deleted " + blacklist_delete + " from " + database);
 
         var embed = new MessageEmbed()
-        .setTitle("Odebráno " + blacklist_delete + " ze zakázaných slov");
+        .setTitle("Odebráno " + blacklist_delete + " ze zakázaných slov")
+        .setDescription("Změna se může projevit až za 1 min.");
         message.channel.send(embed);
 
 
@@ -352,7 +355,8 @@ else if(message.content.startsWith("--av exc add")){
           console.log("[" + time +"] [AV] Deleted " + blacklist_delete + " from " + database);
   
           var embed = new MessageEmbed()
-          .setTitle("Odebráno " + blacklist_delete + " z vyjímek");
+          .setTitle("Odebráno " + blacklist_delete + " z vyjímek")
+          .setDescription("Změna se může projevit až za 1 min.");
           message.channel.send(embed);
   
   
@@ -363,8 +367,29 @@ else if(message.content.startsWith("--av exc add")){
       
       }
 
+      else if(message.content === "--av"){
+        var embed1 = new MessageEmbed()
+        .setDescription("[WebAdmin](http://ttles.space/kockoland/)");
+        message.channel.send(embed1);
+        var embed2 = new MessageEmbed()
+        .setTitle("Anti Vulgarita")
+        .setDescription("`--av` Zobrazí tuto nápovědu \n `--av list` List blokovaných slov a vyjímek \n `--av add <slovo>` Přidá slovo do blacklistu \n `--av delete <slovo>` Odebere slovo z blacklistu \n `--av exc add <slovo>` Přidá slovo do vyjímek \n `--av exc delete <slovo>` Odebere slovo z vyjímek");
+        message.channel.send(embed2);
+
+      }
+
+      
+      else if(message.content === "--av list"){
+        var embed1 = new MessageEmbed()
+        .setDescription("Kompletní list je k dipozici zde: [WebAdmin](http://ttles.space/kockoland/)");
+        message.channel.send(embed1);
+
+
+      }
+
 
 
 })
+
 
 client.login('NzcxNjY0OTQ5NDQ5MDY0NDQ5.X5va_A.HaCNx77HzNAZ27nDy93CGnkRqQ8');

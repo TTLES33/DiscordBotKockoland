@@ -33,7 +33,8 @@ client.on('message', message => {
 
       var embed = new MessageEmbed()
       .setTitle("❌ Reklama ❌")
-      .setDescription("<@" + message.author + "> v <#" + message.channel + "> odeslal zprávu obsahující reklamu\n ↓↓ originální zpráva ↓↓");
+      .setDescription("<@" + message.author + "> v <#" + message.channel + "\n  [WebAdmin](http://ttles.space/kockoland/)");
+     
 
 
       client.channels.cache.get('772909666601533450').send(embed);

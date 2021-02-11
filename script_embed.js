@@ -54,6 +54,9 @@ client.on('message', message => {
      if(message.content === "--embed"){
        if(message.author.bot) return;
        author_console = message.author;
+       var embed1 = new MessageEmbed()
+       .setDescription("[WebAdmin](http://ttles.space/kockoland/)");
+       message.channel.send(embed1);
        var embed  = new MessageEmbed()
        .setTitle("Zadej nadpis")
        .setDescription("> pro zrušení zadávání napiš `--c`")
