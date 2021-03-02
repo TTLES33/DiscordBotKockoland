@@ -62,10 +62,14 @@
   </head>
   <body>
     <?php
-      $servername = "freedb.tech";
-      $username = "freedbtech_TTLES";
-      $password = "testpass";
-      $dbname = "freedbtech_STATS";
+   $servername = "database-ttles.cr2b8qefitxx.us-east-2.rds.amazonaws.com";
+
+   $username = "admin";
+   
+   $password = "pristupoveheslo";
+   
+   $dbname = "kockoland";
+   
 
       $conn = new mysqli($servername, $username, $password, $dbname);
 

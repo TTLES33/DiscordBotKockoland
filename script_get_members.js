@@ -113,7 +113,7 @@ client.on('ready', () => {
     var staff_celkem = admin_celkem+grafik_celkem+stavitel_celekm+helper_celkem+moderator_celkem;
  
  
-   console.log("[" + time +"] [UC] Online managerů: ' + staffonline + '/' + staff_celkem");
+   console.log("[" + time +"] [UC] Online managerů: " + staffonline + "/" + staff_celkem);
    
 
 
@@ -121,12 +121,17 @@ client.on('ready', () => {
 
 
 
-     var con = mysql.createConnection({
-          host: "freedb.tech",
-          user: "freedbtech_TTLES",
-          password: "testpass",
-          database: "freedbtech_STATS"
-        });
+   const host= "database-ttles.cr2b8qefitxx.us-east-2.rds.amazonaws.com";
+   const user = "admin";
+   const password ="pristupoveheslo";
+   const database = "kockoland";
+ 
+ var con = mysql.createConnection({
+   host: host,
+   user: user,
+   password: password,
+   database: database
+ });
              
 
 
@@ -143,14 +148,14 @@ client.on('ready', () => {
                  var sql = "UPDATE `KOCKOLAND_STATS` SET hodnota="+online+" WHERE name='online'";
                  con.query(sql, function (err, result) {
                  if (err)  client.channels.cache.get('772909666601533450').send(err);
-                 console.log("[" + time +"] [UC] Celkem online uživatelů: ' + online");
+                 console.log("[" + time +"] [UC] Celkem online uživatelů: " + online);
               
                  });
 
                  var sql = "UPDATE `KOCKOLAND_STATS` SET hodnota="+celkem+" WHERE name='celkem'";
                  con.query(sql, function (err, result) {
                  if (err)  client.channels.cache.get('772909666601533450').send(err);
-                 console.log("[" + time +"] [UC] Celkem uživatelů: '+ celkem");
+                 console.log("[" + time +"] [UC] Celkem uživatelů: "+ celkem);
          
                  });
 
@@ -160,14 +165,14 @@ client.on('ready', () => {
                  var sql = "UPDATE `KOCKOLAND_STATS` SET hodnota="+staffonline+" WHERE name='staff_online'";
                  con.query(sql, function (err, result) {
                  if (err)  client.channels.cache.get('772909666601533450').send(err);
-                 console.log("[" + time +"] [UC] Celkem managerů: ' + staffonline");
+                 console.log("[" + time +"] [UC] Celkem managerů: " + staffonline);
               
                  });
 
                  var sql = "UPDATE `KOCKOLAND_STATS` SET hodnota="+staff_celkem+" WHERE name='staff_celkem'";
                  con.query(sql, function (err, result) {
                  if (err)  client.channels.cache.get('772909666601533450').send(err);
-                 console.log("[" + time +"] [UC] Celkem online managerů:'+ staff_celkem");
+                 console.log("[" + time +"] [UC] Celkem online managerů:"+ staff_celkem);
          
                  });
          

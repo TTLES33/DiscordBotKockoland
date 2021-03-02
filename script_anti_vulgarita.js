@@ -16,10 +16,10 @@ client.on('ready', () => {
 
 //   1st load *******************************************************************************************************************
 
-  const host= "freedb.tech";
-  const user = "freedbtech_TTLES";
-  const password ="testpass";
-  const database = "freedbtech_STATS";
+  const host= "database-ttles.cr2b8qefitxx.us-east-2.rds.amazonaws.com";
+  const user = "admin";
+  const password ="pristupoveheslo";
+  const database = "kockoland";
 
 var con = mysql.createConnection({
   host: host,
@@ -85,10 +85,10 @@ setInterval(function(){
   
   
 
-  const host= "freedb.tech";
-  const user = "freedbtech_TTLES";
-  const password ="testpass";
-  const database = "freedbtech_STATS";
+  const host= "database-ttles.cr2b8qefitxx.us-east-2.rds.amazonaws.com";
+  const user = "admin";
+  const password ="pristupoveheslo";
+  const database = "kockoland";
 
 var con = mysql.createConnection({
   host: host,
@@ -120,10 +120,10 @@ var con = mysql.createConnection({
   
   
         console.log("[" + time +"] [AV] Loaded database " + database);
-        con.end();
+      
 
   })
- 
+  con.end();
 });
 }, 60 * 1000);
 
@@ -135,7 +135,7 @@ var con = mysql.createConnection({
 client.on('message', message => {
 
   if(message.member.roles.cache.get("333666817346371586") === false){
-
+    if(message.channel !== "364732638369415169"){  
 
   var zprava = message.content;
 
@@ -177,10 +177,10 @@ for (var i = 0; i < blacklist.length; i++) {
       var nick = message.author;
       var blacklisted_word = slovo;
 
-    const host= "freedb.tech";
-    const user = "freedbtech_TTLES";
-    const password ="testpass";
-    const database = "freedbtech_STATS";
+    const host= "database-ttles.cr2b8qefitxx.us-east-2.rds.amazonaws.com";
+    const user = "admin";
+    const password ="pristupoveheslo";
+    const database = "kockoland";
   
   var con = mysql.createConnection({
     host: host,
@@ -205,13 +205,9 @@ for (var i = 0; i < blacklist.length; i++) {
 
     }
 
-  }else{
 
-
-  }
-
-
-  }
+ }
+}}
 
 });
 
@@ -223,10 +219,10 @@ client.on('message', message => {
 if(message.content.startsWith("--av add")){ 
 console.log("--av add");
 
-const host= "freedb.tech";
-const user = "freedbtech_TTLES";
-const password ="testpass";
-const database = "freedbtech_STATS";
+const host= "database-ttles.cr2b8qefitxx.us-east-2.rds.amazonaws.com";
+const user = "admin";
+const password ="pristupoveheslo";
+const database = "kockoland";
 
 var con = mysql.createConnection({
 host: host,
@@ -259,10 +255,10 @@ con.connect(function(err) {
 else if(message.content.startsWith("--av exc add")){ 
   console.log("--av exc add");
   
-  const host= "freedb.tech";
-  const user = "freedbtech_TTLES";
-  const password ="testpass";
-  const database = "freedbtech_STATS";
+  const host= "database-ttles.cr2b8qefitxx.us-east-2.rds.amazonaws.com";
+  const user = "admin";
+  const password ="pristupoveheslo";
+  const database = "kockoland";
   
   var con = mysql.createConnection({
   host: host,
@@ -294,10 +290,10 @@ else if(message.content.startsWith("--av exc add")){
   else if(message.content.startsWith("--av delete")){ 
     console.log("--av delete");
     
-    const host= "freedb.tech";
-    const user = "freedbtech_TTLES";
-    const password ="testpass";
-    const database = "freedbtech_STATS";
+    const host= "database-ttles.cr2b8qefitxx.us-east-2.rds.amazonaws.com";
+    const user = "admin";
+    const password ="pristupoveheslo";
+    const database = "kockoland";
     
     var con = mysql.createConnection({
     host: host,
@@ -333,10 +329,10 @@ else if(message.content.startsWith("--av exc add")){
     else if(message.content.startsWith("--av exc delete")){ 
       console.log("--av exc delete");
       
-      const host= "freedb.tech";
-      const user = "freedbtech_TTLES";
-      const password ="testpass";
-      const database = "freedbtech_STATS";
+      const host= "database-ttles.cr2b8qefitxx.us-east-2.rds.amazonaws.com";
+      const user = "admin";
+      const password ="pristupoveheslo";
+      const database = "kockoland";
       
       var con = mysql.createConnection({
       host: host,

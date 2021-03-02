@@ -18,19 +18,5 @@ Odeslání oznámení o reklamě do roomky ttlesův-bot
 
 Pokud odeslaná zpráva obsahuje ``` =play``` ```=queue``` ```=skip``` ```=purge``` ```=rank``` a není v bot-příkazy upozorní odesilatele na špatný channel
 
-## Script_commands
-
-Maže zprávy obsahující slovo z databáze.
-
-* `--av` Zobrazí tuto nápovědu
-* `--av list <slovo>` List blokovaných slov a vyjímek
-* `--av add <slovo>` Přidá slovo do blacklistu
-* `--av delete <slovo>` Odebere slovo z blacklistu
-* `--av exc add <slovo>` Přidá slovo do vyjímek
-* `--av exc delete <slovo>` Odebere slovo z vyjímek
-
-[Více zde](https://github.com/TTLES33/DiscordBotKockoland/wiki/Anti-Vulgarita)
-***
-
 
 

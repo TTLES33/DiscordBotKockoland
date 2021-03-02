@@ -13,15 +13,17 @@ console.log("[ML] Main Log");
 console.log("[AV] Anti Vulgarita");
 console.log("[UC] User Count");
 console.log("-------------------------");
-script_stats = require("./script_stats");
+ script_stats = require("./script_stats");
 script_reklama = require("./script_reklama");
 script_commands = require("./script_commands");
-script_catch = require("./script_catch");
+//script_catch = require("./script_catch");
 script_get_members = require("./script_get_members");
 script_embed = require("./script_embed");
 scritp_help = require("./script_help");
 script_os = require("./script_os");
 script_anti_vulgarita = require("./script_anti_vulgarita");
+//script_server_status = require("./script_server_status");
+ 
 
 
 

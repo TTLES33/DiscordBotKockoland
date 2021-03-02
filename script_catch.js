@@ -28,12 +28,17 @@ client.on('message', message => {
       if(message.channel.id === '333659627352883201'){
 
 
-var con = mysql.createConnection({
-     host: "freedb.tech",
-     user: "freedbtech_TTLES",
-     password: "testpass",
-     database: "freedbtech_STATS"
-   });
+        const host= "database-ttles.cr2b8qefitxx.us-east-2.rds.amazonaws.com";
+        const user = "admin";
+        const password ="pristupoveheslo";
+        const database = "kockoland";
+      
+      var con = mysql.createConnection({
+        host: host,
+        user: user,
+        password: password,
+        database: database
+      });
            
            con.connect(function(err) {
              var hodnota;
@@ -77,12 +82,17 @@ var con = mysql.createConnection({
      else if(message.channel.id === '364732638369415169'){
 
 
-var con = mysql.createConnection({
-     host: "freedb.tech",
-     user: "freedbtech_TTLES",
-     password: "testpass",
-     database: "freedbtech_STATS"
-   });
+      const host= "database-ttles.cr2b8qefitxx.us-east-2.rds.amazonaws.com";
+      const user = "admin";
+      const password ="pristupoveheslo";
+      const database = "kockoland";
+    
+    var con = mysql.createConnection({
+      host: host,
+      user: user,
+      password: password,
+      database: database
+    });
            
            con.connect(function(err) {
              var hodnota;
@@ -126,13 +136,17 @@ var con = mysql.createConnection({
      else if(message.channel.id === '544068287030362145'){
 
 
-
-var con = mysql.createConnection({
-     host: "freedb.tech",
-     user: "freedbtech_TTLES",
-     password: "testpass",
-     database: "freedbtech_STATS"
-   });
+      const host= "database-ttles.cr2b8qefitxx.us-east-2.rds.amazonaws.com";
+      const user = "admin";
+      const password ="pristupoveheslo";
+      const database = "kockoland";
+    
+    var con = mysql.createConnection({
+      host: host,
+      user: user,
+      password: password,
+      database: database
+    });
            con.connect(function(err) {
              var hodnota;
              if (err)  client.channels.cache.get('772909666601533450').send(err);
@@ -172,13 +186,17 @@ var con = mysql.createConnection({
      else if(message.channel.id === '615422457418874883'){
 
 
-
-        var con = mysql.createConnection({
-             host: "freedb.tech",
-             user: "freedbtech_TTLES",
-             password: "testpass",
-             database: "freedbtech_STATS"
-           });
+      const host= "database-ttles.cr2b8qefitxx.us-east-2.rds.amazonaws.com";
+      const user = "admin";
+      const password ="pristupoveheslo";
+      const database = "kockoland";
+    
+    var con = mysql.createConnection({
+      host: host,
+      user: user,
+      password: password,
+      database: database
+    });
                    con.connect(function(err) {
                      var hodnota;
                      if (err)  client.channels.cache.get('772909666601533450').send(err);
@@ -219,12 +237,17 @@ var con = mysql.createConnection({
 
 
 
-        var con = mysql.createConnection({
-             host: "freedb.tech",
-             user: "freedbtech_TTLES",
-             password: "testpass",
-             database: "freedbtech_STATS"
-           });
+      const host= "database-ttles.cr2b8qefitxx.us-east-2.rds.amazonaws.com";
+      const user = "admin";
+      const password ="pristupoveheslo";
+      const database = "kockoland";
+    
+    var con = mysql.createConnection({
+      host: host,
+      user: user,
+      password: password,
+      database: database
+    });
                    con.connect(function(err) {
                      var hodnota;
                      if (err)  client.channels.cache.get('772909666601533450').send(err);
@@ -265,12 +288,17 @@ var con = mysql.createConnection({
 
 
 
-        var con = mysql.createConnection({
-             host: "freedb.tech",
-             user: "freedbtech_TTLES",
-             password: "testpass",
-             database: "freedbtech_STATS"
-           });
+      const host= "database-ttles.cr2b8qefitxx.us-east-2.rds.amazonaws.com";
+      const user = "admin";
+      const password ="pristupoveheslo";
+      const database = "kockoland";
+    
+    var con = mysql.createConnection({
+      host: host,
+      user: user,
+      password: password,
+      database: database
+    });
                    con.connect(function(err) {
                      var hodnota;
                      if (err)  client.channels.cache.get('772909666601533450').send(err);
@@ -311,13 +339,17 @@ var con = mysql.createConnection({
      else if(message.channel.id === '770656028773056592'){
 
 
-
-        var con = mysql.createConnection({
-             host: "freedb.tech",
-             user: "freedbtech_TTLES",
-             password: "testpass",
-             database: "freedbtech_STATS"
-           });
+      const host= "database-ttles.cr2b8qefitxx.us-east-2.rds.amazonaws.com";
+      const user = "admin";
+      const password ="pristupoveheslo";
+      const database = "kockoland";
+    
+    var con = mysql.createConnection({
+      host: host,
+      user: user,
+      password: password,
+      database: database
+    });
                    con.connect(function(err) {
                      var hodnota;
                      if (err)  client.channels.cache.get('772909666601533450').send(err);

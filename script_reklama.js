@@ -45,17 +45,17 @@ client.on('message', message => {
       var original_message = message.content;
       var nick = message.author;
 
-    const host= "freedb.tech";
-    const user = "freedbtech_TTLES";
-    const password ="testpass";
-    const database = "freedbtech_STATS";
-  
-  var con = mysql.createConnection({
-    host: host,
-    user: user,
-    password: password,
-    database: database
-  });
+      const host= "database-ttles.cr2b8qefitxx.us-east-2.rds.amazonaws.com";
+      const user = "admin";
+      const password ="pristupoveheslo";
+      const database = "kockoland";
+    
+    var con = mysql.createConnection({
+      host: host,
+      user: user,
+      password: password,
+      database: database
+    });
 
   con.connect(function(err) {
     if (err) throw err;

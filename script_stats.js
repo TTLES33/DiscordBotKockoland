@@ -20,12 +20,17 @@ client.on('ready', () => {
         
 
         
-          var con = mysql.createConnection({
-            host: "freedb.tech",
-            user: "freedbtech_TTLES",
-            password: "testpass",
-            database: "freedbtech_STATS"
-          });
+          const host= "database-ttles.cr2b8qefitxx.us-east-2.rds.amazonaws.com";
+          const user = "admin";
+          const password ="pristupoveheslo";
+          const database = "kockoland";
+        
+        var con = mysql.createConnection({
+          host: host,
+          user: user,
+          password: password,
+          database: database
+        });
                
           var hodnotaPokec;
           var hodnotaBot;

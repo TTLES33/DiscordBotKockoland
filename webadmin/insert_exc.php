@@ -12,7 +12,7 @@ $dbname = "kockoland";
  if(isset($_POST['add_submit']))
  {
 
-      $sql = "INSERT INTO anti_vulgarita (blacklist) VALUES ('$add')";
+      $sql = "INSERT INTO anti_vulgarita_exc (blacklist_exc) VALUES ('$add')";
 
  }
  if ($conn->query($sql) === TRUE) {
@@ -22,5 +22,9 @@ $dbname = "kockoland";
          </script>' ; 
    echo " <br>  <br> <a class=\"input2\" href=\"http://ttles.space/kockoland/anti-vulgarita.php\">Obnovit tabulku</a> ";
 
- } 
+ }else{
+
+
+    echo"Error";
+ }
         ?>
